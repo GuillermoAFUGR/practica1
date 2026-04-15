@@ -7,10 +7,17 @@
   "type": "commonjs",
   "main": "servidor.js",
   "scripts": {
+    "start": "node servidor.js",
+    "broma": "node broma/server.js",
     "dev": "node --watch servidor.js",
+    "seed": "node seed.js",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^17.4.2",
+    "express": "^4.17.1",
+    "mongodb": "7.1"
   }
 }
