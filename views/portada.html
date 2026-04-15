@@ -1,11 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portada</title>
+    <title>Seminarios TISD</title>
+    <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    GAY
+    <main class="shell">
+        <section class="hero-panel panel">
+            <div class="eyebrow">Gestor de seminarios</div>
+            <h1>Seminarios TISD</h1>
+            <p class="lead">
+                Desde esta portada puedes dar de alta nuevos seminarios, seleccionar uno existente
+                y entrar directamente a <strong>Puntuaciones</strong> o <strong>Puntuar</strong>.
+            </p>
+        </section>
+
+        <section class="page-grid">
+            <article class="panel panel-highlight">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">A&ntilde;adir seminario</div>
+                        <p class="section-copy">Crea nuevas sesiones desde la portada sin salir del flujo.</p>
+                    </div>
+                    <span class="badge">Nuevo</span>
+                </div>
+
+                <form id="create-seminario-form" class="form-grid">
+                    <label class="field">
+                        <span>Titulo del seminario</span>
+                        <input class="input" type="text" name="title" placeholder="Ej. IA aplicada al aula" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Ponente</span>
+                        <input class="input" type="text" name="speaker" placeholder="Nombre del ponente" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Fecha</span>
+                        <input class="input" type="date" name="date">
+                    </label>
+
+                    <label class="field">
+                        <span>Hora</span>
+                        <input class="input" type="time" name="time">
+                    </label>
+
+                    <label class="field">
+                        <span>Sala</span>
+                        <input class="input" type="text" name="room" placeholder="Ej. Aula Magna">
+                    </label>
+
+                    <label class="field field-full">
+                        <span>Descripcion</span>
+                        <textarea class="input textarea" name="description" placeholder="Describe el enfoque del seminario"></textarea>
+                    </label>
+
+                    <div class="field-full">
+                        <button class="button" type="submit">Guardar seminario</button>
+                    </div>
+                </form>
+
+                <div id="form-feedback" class="notice hidden" aria-live="polite"></div>
+            </article>
+
+            <article class="panel">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Seleccionar seminario</div>
+                        <p class="section-copy">Elige una sesi&oacute;n y activa las acciones disponibles.</p>
+                    </div>
+                    <span class="badge badge-soft">Activo</span>
+                </div>
+
+                <label class="field">
+                    <span>Seminarios disponibles</span>
+                    <select id="seminario-select" class="input select-input"></select>
+                </label>
+
+                <div id="seminario-detail" class="detail-card empty-state">
+                    Selecciona un seminario para ver sus datos principales.
+                </div>
+
+                <div class="action-stack">
+                    <a id="link-puntuaciones" class="button secondary is-disabled" href="#" aria-disabled="true">
+                        Ver puntuaciones
+                    </a>
+                    <a id="link-puntuar" class="button ghost is-disabled" href="#" aria-disabled="true">
+                        Puntuar seminario
+                    </a>
+                    <button id="delete-seminario" class="button danger is-disabled" type="button" aria-disabled="true">
+                        Borrar seminario
+                    </button>
+                </div>
+
+                <div id="selection-feedback" class="notice hidden" aria-live="polite"></div>
+            </article>
+        </section>
+
+        <section class="panel">
+            <div class="section-header">
+                <div>
+                    <div class="section-title">Seminarios creados</div>
+                    <p class="section-copy">Vista r&aacute;pida del estado de cada seminario y sus puntuaciones.</p>
+                </div>
+            </div>
+
+            <div id="seminario-list" class="seminario-list"></div>
+        </section>
+    </main>
+
+    <script src="/portada.js" defer></script>
 </body>
 </html>

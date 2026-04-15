@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada - Seminario</title>
+    <style>
+        /* Reseteo bÃ¡sico y tipografÃ­a moderna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Fondo de la pÃ¡gina centrado con Flexbox */
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* DiseÃ±o de tarjeta (Card) para el formulario */
+        .contenedor {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        label {
+            font-size: 14px;
+            color: #6a7c92;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        /* Estilos para el menÃº desplegable */
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f8fafc;
+            margin-bottom: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Efecto al hacer clic en el selector */
+        select:focus {
+            border-color: #3498db;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        /* Estilos para el botÃ³n de enviar */
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        /* Efectos hover y click del botÃ³n */
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
+        }
+
+        input[type="submit"]:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Seminario</h1>
+
+        <form action="/action_page.php">
+            <label for="seminario">Elige un seminario:</label>
+            <select name="seminario" id="seminario">
+                <option value="seminario1 Lucia">Seminario 1 - LucÃ­a</option>
+                <option value="seminario2 Juan">Seminario 2 - Juan</option>
+            </select>
+            
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,11 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puntuaciones</title>
+    <title>Puntuaciones del seminario</title>
+    <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    hola
+    <main class="shell">
+        <header class="panel hero-panel">
+            <a class="back-link" href="/">&larr; Volver a portada</a>
+            <div class="eyebrow">Puntuaciones</div>
+            <h1 id="puntuaciones-title">Cargando seminario...</h1>
+            <p id="puntuaciones-subtitle" class="lead">
+                Revisa las puntuaciones del usuario y filtra rapidamente por nombre si lo necesitas.
+            </p>
+        </header>
+
+        <section class="page-grid page-grid-wide">
+            <article class="panel panel-highlight">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Listado de valoraciones</div>
+                        <p class="section-copy">Consulta todas las puntuaciones registradas para este seminario.</p>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <label class="field field-grow">
+                        <span>Filtrar por usuario</span>
+                        <input id="filter-user" class="input" type="text" placeholder="Escribe un nombre">
+                    </label>
+                    <button id="clear-filter" class="button ghost toolbar-button" type="button">Limpiar</button>
+                </div>
+
+                <div id="filter-hint" class="helper-text"></div>
+                <div id="ratings-list" class="rating-list"></div>
+            </article>
+
+            <aside class="panel">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Metricas</div>
+                        <p class="section-copy">Promedio, volumen total y reparto de notas al instante.</p>
+                    </div>
+                </div>
+
+                <div id="puntuaciones-meta" class="tag-row"></div>
+                <div id="puntuaciones-stats" class="stats-grid"></div>
+
+                <div class="section-title section-spaced">Reparto de notas</div>
+                <div id="breakdown-list" class="breakdown"></div>
+
+                <div class="action-stack action-stack-tight">
+                    <a id="go-to-puntuar" class="button is-disabled" href="#" aria-disabled="true">Puntuar este seminario</a>
+                    <a class="button ghost" href="/">Cambiar de seminario</a>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="/puntuaciones.js" defer></script>
 </body>
 </html>

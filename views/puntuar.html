@@ -1,11 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>puntuar</title>
+    <title>Puntuar seminario</title>
+    <link rel="stylesheet" href="/app.css">
 </head>
 <body>
-    hola
+    <main class="shell">
+        <header class="panel hero-panel">
+            <a class="back-link" href="/">&larr; Volver a portada</a>
+            <div class="eyebrow">Puntuar</div>
+            <h1 id="puntuar-title">Cargando seminario...</h1>
+            <p id="puntuar-subtitle" class="lead">
+                Prepara una valoraci&oacute;n clara y deja constancia de la experiencia del usuario.
+            </p>
+        </header>
+
+        <section class="page-grid page-grid-wide">
+            <article class="panel panel-highlight">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Registrar puntuacion</div>
+                        <p class="section-copy">Guarda la nota del usuario y un comentario opcional.</p>
+                    </div>
+                </div>
+
+                <div id="seminario-meta" class="tag-row"></div>
+
+                <form id="rating-form" class="form-grid">
+                    <label class="field field-full">
+                        <span>Usuario</span>
+                        <input class="input" type="text" name="user" placeholder="Nombre del usuario" required>
+                    </label>
+
+                    <div class="field field-full">
+                        <span>Puntuacion</span>
+                        <div class="score-grid">
+                            <label class="score-option">
+                                <input type="radio" name="score" value="1" required>
+                                <span>1</span>
+                            </label>
+                            <label class="score-option">
+                                <input type="radio" name="score" value="2">
+                                <span>2</span>
+                            </label>
+                            <label class="score-option">
+                                <input type="radio" name="score" value="3">
+                                <span>3</span>
+                            </label>
+                            <label class="score-option">
+                                <input type="radio" name="score" value="4">
+                                <span>4</span>
+                            </label>
+                            <label class="score-option">
+                                <input type="radio" name="score" value="5">
+                                <span>5</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <label class="field field-full">
+                        <span>Comentario</span>
+                        <textarea class="input textarea" name="comment" placeholder="Que te ha parecido este seminario"></textarea>
+                    </label>
+
+                    <div class="field-full">
+                        <button class="button" type="submit">Guardar puntuacion</button>
+                    </div>
+                </form>
+
+                <div id="rating-feedback" class="notice hidden" aria-live="polite"></div>
+            </article>
+
+            <aside class="panel">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Resumen actual</div>
+                        <p class="section-copy">Consulta el promedio antes de seguir sumando valoraciones.</p>
+                    </div>
+                </div>
+
+                <div id="rating-stats" class="stats-grid"></div>
+
+                <div class="section-title section-spaced">Ultimas puntuaciones</div>
+                <div id="recent-ratings" class="mini-list"></div>
+
+                <div class="action-stack action-stack-tight">
+                    <a id="go-to-puntuaciones" class="button secondary is-disabled" href="#" aria-disabled="true">Ver puntuaciones</a>
+                    <a class="button ghost" href="/">Cambiar de seminario</a>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="/puntuar.js" defer></script>
 </body>
 </html>
