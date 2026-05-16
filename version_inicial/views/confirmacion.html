@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Confirmacion{% endblock %}
+
+{% block contenido %}
+  {% if seminario %}
+    <div class="cabecera">
+      <p class="eyebrow">Confirmacion</p>
+      <h1>Puntuacion guardada</h1>
+      <h3>{{ seminario.titulo }} - {{ seminario.autor }}</h3>
+    </div>
+
+    <div class="panel">
+      <div class="detalle-confirmacion">
+        <div class="dato">
+          <span class="dato-etiqueta">Calidad</span>
+          <strong>{{ calidad }}</strong>
+        </div>
+        <div class="dato">
+          <span class="dato-etiqueta">Utilidad</span>
+          <strong>{{ utilidad }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="acciones">
+      <a class="enlace boton-enlace" href="/ver-puntuaciones?seminario_de={{ seminario.autor }}">
+        Ver puntuaciones
+      </a>
+      <a class="enlace boton-enlace boton-enlace-secundario" href="/">Volver a portada</a>
+    </div>
+  {% else %}
+    <h1>Puntuacion guardada</h1>
+    <p class="enlace-linea"><a class="enlace" href="/">Volver a portada</a></p>
+  {% endif %}
+{% endblock %}

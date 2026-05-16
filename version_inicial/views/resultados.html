@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Resultados{% endblock %}
+
+{% block contenido %}
+  {% if seminario %}
+    <div class="cabecera">
+      <p class="eyebrow">Resultados</p>
+      <h1>Resultados</h1>
+      <h3>Puntuaciones de {{ seminario.titulo }} - {{ seminario.autor }}</h3>
+    </div>
+
+    <div class="panel">
+      <table class="tabla">
+        <tr>
+          <th>Calidad</th>
+          <th>Utilidad</th>
+          <th>Fecha</th>
+        </tr>
+        {% for p in puntuaciones %}
+          <tr>
+            <td>{{ p.calidad }}</td>
+            <td>{{ p.utilidad }}</td>
+            <td>{{ p.fecha or 'Sin fecha' }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="resumen">
+      <strong>La media es {{ media }}</strong>
+    </div>
+    <p class="enlace-linea"><a class="enlace" href="/">Volver a portada</a></p>
+  {% else %}
+    <h1>Seminario no encontrado</h1>
+    <p class="enlace-linea"><a class="enlace" href="/">Volver a portada</a></p>
+  {% endif %}
+{% endblock %}
