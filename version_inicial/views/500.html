@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}500{% endblock %}
+
+{% block contenido %}
+  <div class="cabecera estado">
+    <p class="eyebrow">Error 500</p>
+    <h1 class="estado-codigo">Error interno</h1>
+    <p class="subtitulo estado-texto">{{ mensaje }}</p>
+  </div>
+
+  <div class="panel">
+    <p>Intentalo de nuevo dentro de un momento. Si el problema sigue, revisa la conexion con MongoDB.</p>
+    <p class="enlace-linea"><a class="enlace" href="/">Volver a portada</a></p>
+  </div>
+{% endblock %}

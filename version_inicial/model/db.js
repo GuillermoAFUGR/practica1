@@ -1,8 +1,9 @@
+const { buildMongoUrl, getEnv } = require('../config/env');
 const { MongoClient } = require('mongodb');
 
-const url = 'mongodb://root:example@localhost:27017/';
+const url = buildMongoUrl();
 const client = new MongoClient(url);
-const dbName = 'puntuaciones';
+const dbName = getEnv('MONGODB_DB_NAME', 'puntuaciones');
 
 let db;
 

@@ -1,3 +1,4 @@
+const { buildMongoUrl, getEnv } = require('./config/env');
 const { MongoClient } = require('mongodb');
 
 const seminarios = [
@@ -18,8 +19,8 @@ const seminarios = [
   },
 ];
 
-const client = new MongoClient('mongodb://root:example@localhost:27017/');
-const database = client.db('puntuaciones');
+const client = new MongoClient(buildMongoUrl());
+const database = client.db(getEnv('MONGODB_DB_NAME', 'puntuaciones'));
 const coleccionSeminarios = database.collection('seminarios');
 const coleccionPuntuaciones = database.collection('puntuaciones');
 

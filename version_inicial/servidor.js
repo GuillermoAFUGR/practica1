@@ -1,3 +1,5 @@
+require('./config/env');
+
 const express = require('express');
 const path = require('path');
 const nunjucks = require('nunjucks');
@@ -17,6 +19,25 @@ nunjucks.configure(path.join(__dirname, 'views'), {
 });
 
 app.use('/', require('./routes/seminarios'));
+
+app.use((req, res) => {
+  res.status(404).render('404.html', {
+    url: req.originalUrl,
+  });
+});
+
+app.use((error, req, res, next) => {
+  console.error('Error en la aplicacion:', error);
+
+  const mensaje =
+    error.message && error.message.includes('Mongo')
+      ? 'No se pudo completar la operacion porque hubo un problema con la base de datos.'
+      : 'Ha ocurrido un error interno inesperado.';
+
+  res.status(500).render('500.html', {
+    mensaje,
+  });
+});
 
 async function startServer() {
   await connectDB();

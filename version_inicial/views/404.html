@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}404{% endblock %}
+
+{% block contenido %}
+  <div class="cabecera estado">
+    <p class="eyebrow">Error 404</p>
+    <h1 class="estado-codigo">Pagina no encontrada</h1>
+    <p class="subtitulo estado-texto">
+      La ruta <strong>{{ url }}</strong> no existe o no esta disponible en esta practica.
+    </p>
+  </div>
+
+  <div class="panel">
+    <p>Puedes volver a la portada para seguir usando la aplicacion.</p>
+    <p class="enlace-linea"><a class="enlace" href="/">Volver a portada</a></p>
+  </div>
+{% endblock %}
